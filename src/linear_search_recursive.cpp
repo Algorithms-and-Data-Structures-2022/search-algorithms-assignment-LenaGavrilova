@@ -8,11 +8,13 @@ namespace assignment {
   }
 
   std::optional<int> LinearSearchRecursive::search(const std::vector<int>& arr, int search_elem, int curr_index) const {
-    // Tips:
-    // 1. Укажите случаи выхода из рекурсии: (а) обошли все элементы и (б) элемент найден.
-    // 2. Вызовите рекурсивный метод с другим индексом.
+    if(curr_index==arr.size()){
+      return std::nullopt;
+    }
+    if(arr[curr_index]==search_elem){
+      return std::nullopt;
+    }
+    return search(arr,search_elem,curr_index+1);
 
-    return std::nullopt;
   }
-
-}  // namespace assignment
+}
